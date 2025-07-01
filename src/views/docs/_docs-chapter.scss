@@ -1,0 +1,15 @@
+@mixin docs-chapter {
+  .chapter__title {
+    font-size: 2.2rem;
+  }
+
+  .chapter__description {
+    margin: 1rem 0;
+  }
+
+  .chapter__second-title {
+    margin-top: 2.25rem;
+    font-size: 1.65rem;
+    margin-bottom: 1.25rem;
+  }
+}
