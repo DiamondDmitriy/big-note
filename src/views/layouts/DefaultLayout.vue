@@ -1,20 +1,31 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
-import SiteHeader from '@/components/SiteHeader.vue'
-import SiteAside, { type AsideItem } from '@/components/SiteAside.vue'
+import SiteHeader from '@/components/site/SiteHeader.vue'
+import SiteAside, { type AsideItem } from '@/components/site/SiteAside.vue'
+import { CircleCheck, Notebook, Document } from '@element-plus/icons-vue'
 
 const asideItems: AsideItem[] = [
   {
     name: 'To Do',
-    routeName: 'to-do',
+    route: '/to-do',
+    iconComponent: CircleCheck,
   },
   {
     name: 'Заметки',
-    routeName: 'notes',
+    route: '/notes',
+    iconComponent: Notebook,
   },
   {
     name: 'Документация',
-    routeName: 'docs',
+    route: '/docs',
+    iconComponent: Document,
+    children: [
+      {
+        name: 'Colors',
+        route: '/docs/colors',
+        // iconComponent: null,
+      },
+    ],
   },
 ]
 </script>

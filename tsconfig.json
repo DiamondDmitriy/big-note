@@ -12,6 +12,12 @@
     }
   ],
   "compilerOptions": {
-    "module": "NodeNext"
+    "types": [
+      "node"
+    ],
+    "module": "NodeNext",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "moduleResolution": "node"
   }
 }

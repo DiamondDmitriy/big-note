@@ -1,47 +1,62 @@
 <script setup lang="ts">
-import { Plus } from '@element-plus/icons-vue'
 import { onMounted, ref } from 'vue'
 import { CategoriesItems } from '@/views/todo/TestData.ts'
 import type { ToDoCategory } from '@/views/todo/todo.types.ts'
-import EmptyContent from '@/components/EmptyContent.vue'
+import BaseContainer from '@/components/site/BaseContainer.vue'
+import AddToDoTaskRow from '@/views/todo/components/AddToDoTaskRow.vue'
+import ToDoCategories from '@/views/todo/components/ToDoCategories.vue'
+// import { TASKS_SERVICE_ID, TasksController } from '@/core/http/controllers/Tasks.controller'
+// import container from '@/di.ts'
 
-const targetCategory = ref<ToDoCategory | null>(null)
+// const tasksController = container.get<TasksController>(TASKS_SERVICE_ID)
 const categories = ref<ToDoCategory[]>(CategoriesItems)
+const targetCategory = ref<ToDoCategory | null>(null)
+const loading = ref(false)
 
-function selectTarget(category: ToDoCategory) {
-  targetCategory.value = category
-}
-
-onMounted(() => {})
+onMounted(async () => {
+  loading.value = true
+  // tasksController
+  //   .getAll()
+  //   .then(({ data }) => {
+  //     console.log(data)
+  //   })
+  //   .catch((err) => {
+  //     console.error(err)
+  //   })
+  loading.value = false
+})
 </script>
 
 <template>
   <div class="to-do-view">
-    <div class="to-do-view-categories">
-      <ul class="to-do-view-categories__items" v-if="categories.length">
+    <ToDoCategories
+      :categories="categories"
+      @selected-category="(category: ToDoCategory) => (targetCategory = category)"
+      @add-category="(category: ToDoCategory) => categories.push(category)"
+    />
+
+    <BaseContainer class="to-do-view-tasks" :empty="!targetCategory?.tasks.length">
+      <h2 class="to-do-view-tasks__title">{{ targetCategory?.name }}</h2>
+      <ul class="to-do-view-tasks__items">
         <li
-          class="to-do-view-categories__item"
-          v-for="category in categories"
-          :key="category.id"
-          @click="selectTarget(category)"
+          class="to-do-view-tasks__item to-do-view-tasks-item"
+          v-for="task in targetCategory?.tasks"
+          :key="task.id"
         >
-          {{ category.name }}
+          <el-checkbox value="Value 1" class="to-do-view-tasks-item__checkbox" />
+          <p class="to-do-view-tasks-item__text">{{ task.text }}</p>
+          <!--          <div class="to-do-view-tasks-item__favorite"></div>-->
+          <!--          <el-rate v-model="value" size="large" :max="1" />-->
         </li>
       </ul>
-      <el-button style="width: 100%" :icon="Plus">Добавить категорию</el-button>
-    </div>
-    <div class="to-do-view-tasks">
-      <EmptyContent text="test" v-if="!targetCategory?.tasks.length" />
-
-      <template v-else>
-        <h2 class="title">{{ targetCategory.name }}</h2>
-        <ul class="to-do-view-tasks__items">
-          <li class="to-do-view-tasks__item" v-for="task in targetCategory.tasks" :key="task.id">
-            {{ task.text }}
-          </li>
-        </ul>
+      <template #always>
+        <!--        targetCategory-->
+        <AddToDoTaskRow
+          v-if="targetCategory"
+          @add-task="(item) => targetCategory.tasks.unshift(item)"
+        />
       </template>
-    </div>
+    </BaseContainer>
   </div>
 </template>
 
@@ -49,36 +64,23 @@ onMounted(() => {})
 .to-do-view {
   display: flex;
   height: 100%;
-  gap: var(--container-padding);
 
   --category-bg-color: white;
   --tasks-bg-color: white;
 
-  &-categories {
-    width: 300px;
-    background-color: var(--lighter-fill);
-    //padding: var(--container-offset);
-
-    &__items {
-      list-style: none;
-      padding: 0;
-    }
-
-    &__item {
-    }
-  }
-
   &-tasks {
-    width: 100%;
-    padding: var(--container-offset);
-    //background-color: var(--tasks-bg-color);
+    &__title {
+      margin-bottom: 30px;
+    }
 
     &__items {
       list-style: none;
       padding: 0;
     }
 
-    &__item {
+    &-item {
+      display: flex;
+      align-items: center;
     }
   }
 }

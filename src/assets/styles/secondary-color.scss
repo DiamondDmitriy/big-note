@@ -1,0 +1,75 @@
+:root {
+  // success
+  --color-success: #67C23A;
+  --color-success-2: rgb(82.4, 155.2, 46.4);
+  --color-success-3: rgb(148.6, 212.3, 117.1);
+  --color-success-4: rgb(179, 224.5, 156.5);
+  --color-success-5: rgb(209.4, 236.7, 195.9);
+  --color-success-6: rgb(224.6, 242.8, 215.6);
+  --color-success-7: rgb(239.8, 248.9, 235.3);
+
+  // warning
+  --color-warning: #E6A23C;
+  --color-warning-2: rgb(184, 129.6, 48);
+  --color-warning-3: rgb(237.5, 189.9, 118.5);
+  --color-warning-4: rgb(242.5, 208.5, 157.5);
+  --color-warning-5: rgb(247.5, 227.1, 196.5);
+  --color-warning-6: rgb(250, 236.4, 216);
+  --color-warning-7: rgb(252.5, 245.7, 235.5);
+
+  // danger
+  --color-danger: #F56C6C;
+  --color-danger-2: rgb(196, 86.4, 86.4);
+  --color-danger-3: rgb(248, 152.1, 152.1);
+  --color-danger-4: rgb(250, 181.5, 181.5);
+  --color-danger-5: rgb(252, 210.9, 210.9);
+  --color-danger-6: rgb(253, 225.6, 225.6);
+  --color-danger-7: rgb(254, 240.3, 240.3);
+
+  // info
+  --color-info: #909399;
+  --color-info-2: rgb(115.2, 117.6, 122.4);
+  --color-info-3: rgb(177.3, 179.4, 183.6);
+  --color-info-4: rgb(199.5, 201, 204);
+  --color-info-5: rgb(221.7, 222.6, 224.4);
+  --color-info-6: rgb(232.8, 233.4, 234.6);
+  --color-info-7: rgb(243.9, 244.2, 244.8);
+}
+
+.dark {
+  // success
+  --color-success: #67C23A;
+  --color-success-2: rgb(133.4, 206.2, 97.4);
+  --color-success-3: rgb(78.1, 141.8, 46.6);
+  --color-success-4: rgb(61.5, 107, 39);
+  --color-success-5: rgb(44.9, 72.2, 31.4);
+  --color-success-6: rgb(36.6, 54.8, 27.6);
+  --color-success-7: rgb(28.3, 37.4, 23.8);
+
+  // warning
+  --color-warning: #E6A23C;
+  --color-warning-2: rgb(235, 180.6, 99);
+  --color-warning-3: rgb(167, 119.4, 48);
+  --color-warning-4: #7d5b28;
+  --color-warning-5: rgb(83, 62.6, 32);
+  --color-warning-6: rgb(62, 48.4, 28);
+  --color-warning-7: rgb(41, 34.2, 24);
+
+  // danger
+  --color-danger: #F56C6C;
+  --color-danger-2: rgb(247, 137.4, 137.4);
+  --color-danger-3: rgb(177.5, 81.6, 81.6);
+  --color-danger-4: rgb(132.5, 64, 64);
+  --color-danger-5: rgb(87.5, 46.4, 46.4);
+  --color-danger-6: rgb(65, 37.6, 37.6);
+  --color-danger-7: rgb(42.5, 28.8, 28.8);
+
+  // info
+  --color-info: #909399;
+  --color-info-2: rgb(166.2, 168.6, 173.4);
+  --color-info-3: rgb(106.8, 108.9, 113.1);
+  --color-info-4: rgb(82, 83.5, 86.5);
+  --color-info-5: rgb(57.2, 58.1, 59.9);
+  --color-info-6: rgb(44.8, 45.4, 46.6);
+  --color-info-7: rgb(32.4, 32.7, 33.3);
+}
