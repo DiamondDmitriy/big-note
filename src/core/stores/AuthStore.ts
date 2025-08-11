@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import container from '@/di.ts'
 import { AUTH_SERVICE_ID, AuthController } from '@/core/http/controllers/Auth.controller.ts'
-import User from '@/core/models/User.ts'
+import User from '@/domain/models/User.ts'
 import { useUserStore } from '@/core/stores/UserStore.ts'
 
 type AuthState = {

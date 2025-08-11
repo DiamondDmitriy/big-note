@@ -2,24 +2,24 @@
 import { ref, reactive, watch, type Ref, nextTick } from 'vue'
 import { Link } from '@element-plus/icons-vue'
 import type { FormInstance, FormRules } from 'element-plus'
-import { emailValidatorForFormElement } from '@/core/validation/email.ts'
-import { loginValidatorForFormElement } from '@/core/validation/login.ts'
+import { emailValidatorForFormElement } from '@/domain/validation/email.ts'
+import { loginValidatorForFormElement } from '@/domain/validation/login.ts'
 import {
   PASSWORD_MES_INVALID_EMPTY,
   PASSWORD_MES_INVALID_MAX_LENGTH,
   PASSWORD_MES_INVALID_MIN_LENGTH,
   PASSWORD_MES_INVALID_REGEX,
   PASSWORD_REGEX,
-} from '@/core/validation/password.ts'
+} from '@/domain/validation/password.ts'
 import container from '@/di.ts'
 import { AUTH_SERVICE_ID, AuthController } from '@/core/http/controllers/Auth.controller.ts'
-import User from '@/core/models/User.ts'
+import User from '@/domain/models/User.ts'
 import { useUserStore } from '@/core/stores/UserStore.ts'
 import { SignIn, SignInRecovery } from '@/router/routes/auth.route.ts'
 import {
   openAuthModalHandler,
   useAuthModalControl,
-} from '@/core/composables/useAuthModalControl.ts'
+} from '@/composables/useAuthModalControl.ts'
 
 interface LoginForm {
   login: string

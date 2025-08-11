@@ -2,18 +2,18 @@
 import { SignIn, SignInRecovery } from '@/router/routes/auth.route.ts'
 import container from '@/di.ts'
 import { AUTH_SERVICE_ID, AuthController } from '@/core/http/controllers/Auth.controller.ts'
-import { useAuthModalControl } from '@/core/composables/useAuthModalControl.ts'
+import { useAuthModalControl } from '@/composables/useAuthModalControl.ts'
 import { reactive, ref, type Ref } from 'vue'
 import type { FormInstance, FormRules } from 'element-plus'
-import { emailValidatorForFormElement } from '@/core/validation/email.ts'
-import { loginValidatorForFormElement } from '@/core/validation/login.ts'
+import { emailValidatorForFormElement } from '@/domain/validation/email.ts'
+import { loginValidatorForFormElement } from '@/domain/validation/login.ts'
 import {
   PASSWORD_MES_INVALID_EMPTY,
   PASSWORD_MES_INVALID_MAX_LENGTH,
   PASSWORD_MES_INVALID_MIN_LENGTH,
   PASSWORD_MES_INVALID_REGEX,
   PASSWORD_REGEX,
-} from '@/core/validation/password.ts'
+} from '@/domain/validation/password.ts'
 
 // withDefaults(
 //   defineProps<{
@@ -62,7 +62,7 @@ function submitForm(formEl: FormInstance | undefined) {
     @close="closeModalHandler"
     @open="openModalHandler"
   >
-    <template #header><h3 class="title">Востановление пароля</h3></template>
+    <template #header><h3 class="title">Восстановление пароля</h3></template>
     <ElForm :model="form" :rules="rules" label-width="auto" style="max-width: 500px" ref="formRef">
       <ElFormItem label="Пароль" prop="password">
         <ElInput

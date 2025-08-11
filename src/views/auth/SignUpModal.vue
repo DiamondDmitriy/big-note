@@ -3,25 +3,25 @@ import { ref, reactive, watch, type Ref } from 'vue'
 import { Link } from '@element-plus/icons-vue'
 import { type FormInstance, type FormRules } from 'element-plus'
 import { DateTime } from 'luxon'
-import { NAME_MES_INVALID_REGEX, NAME_REGEX } from '@/core/validation/field.ts'
-import { LOGIN_MES_INVALID_REGEX, LOGIN_REGEX } from '@/core/validation/login.ts'
-import { CURRENT_YEAR, generateDays, generateYears, getMonths } from '@/core/helpers/datetime'
-import { EMAIL_MES_INVALID_REGEX, EMAIL_REGEX } from '@/core/validation/email.ts'
+import { NAME_MES_INVALID_REGEX, NAME_REGEX } from '@/domain/validation/field.ts'
+import { LOGIN_MES_INVALID_REGEX, LOGIN_REGEX } from '@/domain/validation/login.ts'
+import { CURRENT_YEAR, generateDays, generateYears, getMonths } from '@/core/utils/datetime'
+import { EMAIL_MES_INVALID_REGEX, EMAIL_REGEX } from '@/domain/validation/email.ts'
 import {
   PASSWORD_MES_INVALID_MATCH,
   PASSWORD_MES_INVALID_MAX_LENGTH,
   PASSWORD_MES_INVALID_MIN_LENGTH,
   PASSWORD_MES_INVALID_REGEX,
   PASSWORD_REGEX,
-} from '@/core/validation/password.ts'
+} from '@/domain/validation/password.ts'
 
 import container from '@/di.ts'
 import { AUTH_SERVICE_ID, AuthController } from '@/core/http/controllers/Auth.controller'
 import RegistrationRequest from '@/core/http/request/auth/RegistrationRequest.ts'
 import { useUserStore } from '@/core/stores/UserStore.ts'
-import User from '@/core/models/User.ts'
+import User from '@/domain/models/User.ts'
 import { SignUp } from '@/router/routes/auth.route.ts'
-import { useAuthModalControl } from '@/core/composables/useAuthModalControl.ts'
+import { useAuthModalControl } from '@/composables/useAuthModalControl.ts'
 
 interface LoginForm {
   name: string

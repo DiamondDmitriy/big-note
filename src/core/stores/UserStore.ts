@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import UserModel from '@/core/models/User.ts'
+import UserModel from '@/domain/models/User.ts'
 
 type UserState = {
   id: string
