@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import DefaultLayout from '@/views/layouts/DefaultLayout.vue'
+import DefaultLayout from '@/app/layouts/DefaultLayout.vue'
 import { useRoute } from 'vue-router'
 import { computed, onBeforeMount } from 'vue'
-import EmptyLayout from '@/views/layouts/EmptyLayout.vue'
-import OnlyHeaderLayout from '@/views/layouts/OnlyHeaderLayout.vue'
-import { useAuthStore } from '@/core/stores/AuthStore.ts'
+import EmptyLayout from '@/app/layouts/EmptyLayout.vue'
+import OnlyHeaderLayout from '@/app/layouts/OnlyHeaderLayout.vue'
+import { useAuthStore } from '@/features/auth/auth.store.ts'
 
 const route = useRoute()
 const authStore = useAuthStore()
